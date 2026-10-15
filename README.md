@@ -21,8 +21,8 @@ Un regalo web interactivo y tierno para una relación a distancia, listo para **
    - Disco de vinilo giratorio, ondas animadas y reproducción suave con el primer toque o al decir que sí.
 
 4. **📸 Álbum de Recuerdos**:
-   - `fotos/acostadosia.jpeg` (En la vida real).
-   - `fotos/minecraft.jpeg` (En Minecraft con xDario3).
+   - `fotos/acostadosia.jpeg` (Así nos imagino juntos en la vida real - fotito con IA).
+   - `fotos/minecraft.jpeg` (En Minecraft acostaditos conmigo).
    - `fotos/sky.jpeg`, `fotos/sky2.jpeg`, `fotos/sky3.jpeg` (En Sky).
    - Visor modal en pantalla completa al tocar cada foto.
 
