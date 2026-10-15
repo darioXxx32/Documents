@@ -1,0 +1,10 @@
+Aquí puedes colocar todas las capturas de pantalla y fotos de sus citas virtuales y recuerdos juntos:
+
+📁 /citas_virtuales/
+  ├── 📁 minecraft/        -> Pon aquí tus fotos de Minecraft (ej: casita, atardecer, campos de flores)
+  ├── 📁 roblox/           -> Pon aquí tus capturas de Roblox (ej: obbies, juegos de rol, paseos)
+  ├── 📁 sky/              -> Pon aquí tus fotos de Sky: Children of the Light (ej: volando de la mano, velas)
+  └── 📁 fotos_juntos/     -> Fotos de ustedes en llamada, fotos de ella o recuerdos especiales
+
+Tip: Puedes nombrarlas por ejemplo `foto1.jpg`, `foto2.jpg` o como quieras. 
+La página ya viene configurada para mostrar tarjetas interactivas de cada uno de estos mundos mágicos. ✨

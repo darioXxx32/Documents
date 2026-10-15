@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="robloxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff758c"/>
+      <stop offset="50%" stop-color="#ff7eb3"/>
+      <stop offset="100%" stop-color="#70a6ff"/>
+    </linearGradient>
+    <linearGradient id="blockGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffeaa7"/>
+      <stop offset="100%" stop-color="#fab1a0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#robloxBg)"/>
+
+  <!-- Plataformas flotantes estilo Obby de Roblox -->
+  <g opacity="0.6">
+    <rect x="50" y="280" width="100" height="20" rx="4" fill="#55efc4"/>
+    <rect x="180" y="240" width="90" height="20" rx="4" fill="#ffeaa7"/>
+    <rect x="300" y="280" width="120" height="20" rx="4" fill="#fab1a0"/>
+    <rect x="440" y="230" width="110" height="20" rx="4" fill="#a29bfe"/>
+  </g>
+
+  <!-- Plataforma central donde están los avatares -->
+  <rect x="170" y="260" width="260" height="30" rx="6" fill="#ffffff" opacity="0.95"/>
+  <rect x="175" y="265" width="250" height="8" rx="2" fill="#ff7675" opacity="0.5"/>
+
+  <!-- Avatar 1 (Roblox Boy) -->
+  <g transform="translate(240, 160)">
+    <!-- Cabeza amarilla clásica con gorrita o pelo -->
+    <rect x="10" y="0" width="30" height="26" rx="4" fill="#ffd32a"/>
+    <!-- Cabello castaño desordenado -->
+    <path d="M 8,0 Q 25,-12 42,0 L 42,10 L 8,10 Z" fill="#4b382a"/>
+    <!-- Carita feliz -->
+    <circle cx="18" cy="14" r="2.5" fill="#2d3436"/>
+    <circle cx="32" cy="14" r="2.5" fill="#2d3436"/>
+    <path d="M 21,18 Q 25,23 29,18" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Torso ancho característico de Roblox -->
+    <rect x="0" y="28" width="50" height="42" rx="3" fill="#0984e3"/>
+    <!-- Logo de corazón en la camiseta -->
+    <circle cx="25" cy="46" r="6" fill="#ffffff" opacity="0.4"/>
+    <!-- Brazos -->
+    <rect x="-12" y="30" width="12" height="38" rx="3" fill="#ffd32a"/>
+    <rect x="50" y="30" width="12" height="38" rx="3" fill="#ffd32a"/>
+    <!-- Piernas -->
+    <rect x="5" y="70" width="18" height="30" rx="2" fill="#2d3436"/>
+    <rect x="27" y="70" width="18" height="30" rx="2" fill="#2d3436"/>
+  </g>
+
+  <!-- Avatar 2 (Roblox Girl) -->
+  <g transform="translate(310, 160)">
+    <!-- Cabeza -->
+    <rect x="10" y="0" width="30" height="26" rx="4" fill="#ffd32a"/>
+    <!-- Cabello largo con moño -->
+    <path d="M 6,-2 Q 25,-14 44,-2 L 46,26 L 38,20 L 38,10 L 12,10 L 12,20 L 4,26 Z" fill="#6c5ce7"/>
+    <circle cx="38" cy="2" r="5" fill="#ff7675"/> <!-- Moñito rosa -->
+    <!-- Carita tierna -->
+    <circle cx="18" cy="14" r="2.5" fill="#2d3436"/>
+    <circle cx="32" cy="14" r="2.5" fill="#2d3436"/>
+    <ellipse cx="14" cy="18" rx="3" ry="1.5" fill="#ff7675" opacity="0.6"/>
+    <ellipse cx="36" cy="18" rx="3" ry="1.5" fill="#ff7675" opacity="0.6"/>
+    <path d="M 21,18 Q 25,23 29,18" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Torso -->
+    <rect x="0" y="28" width="50" height="42" rx="3" fill="#fd79a8"/>
+    <!-- Brazos -->
+    <rect x="-12" y="30" width="12" height="38" rx="3" fill="#ffd32a"/>
+    <rect x="50" y="30" width="12" height="38" rx="3" fill="#ffd32a"/>
+    <!-- Piernas -->
+    <rect x="5" y="70" width="18" height="30" rx="2" fill="#dfe6e9"/>
+    <rect x="27" y="70" width="18" height="30" rx="2" fill="#dfe6e9"/>
+  </g>
+
+  <!-- Corazón de amor uniendo a los dos avatares -->
+  <path d="M 300,140 Q 300,120 285,120 Q 270,120 270,135 Q 270,150 300,170 Q 330,150 330,135 Q 330,120 315,120 Q 300,120 300,140 Z" fill="#ff3838" filter="drop-shadow(0 4px 8px rgba(255, 56, 56, 0.4))"/>
+
+  <text x="300" y="340" font-family="'Outfit', sans-serif" font-weight="bold" font-size="20" fill="#ffffff" text-anchor="middle" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.5))">
+    Nuestras risas y caídas en Roblox 🎮💖
+  </text>
+</svg>

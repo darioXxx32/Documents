@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi amorcito 💕 | Nuestros Mundos & Nuestro Amor</title>
+  <meta name="description" content="Nuestra página interactiva para una relación a distancia. Mundos virtuales, fotos reales y amor infinito.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fondo con animación de partículas y corazones -->
+  <canvas id="hearts-canvas"></canvas>
+
+  <div class="decorations-container">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+  </div>
+
+  <!-- Elemento de Audio: Labios Rotos - Zoé -->
+  <audio id="bg-music" src="cancion/labiosrotos-zoe.mp3" preload="auto" loop></audio>
+
+  <!-- Barra flotante de música y ambientación -->
+  <nav class="top-nav">
+    <div class="nav-pill">
+      <span class="pulse-dot"></span>
+      <span id="nav-status-text">Conectados a distancia • 1 solo corazón 🌍❤️</span>
+    </div>
+    
+    <!-- Reproductor de Nuestra Canción: Labios Rotos - Zoé -->
+    <div class="music-player-pill" id="music-player-pill">
+      <div class="vinyl-disc" id="vinyl-disc">
+        <span class="disc-icon">💿</span>
+      </div>
+      <div class="music-info">
+        <span class="song-title">Labios Rotos</span>
+        <span class="song-artist">Zoé 💕</span>
+      </div>
+      <button id="music-toggle" class="player-btn" title="Reproducir / Pausar Labios Rotos - Zoé">
+        <span class="play-icon" id="play-icon">▶️</span>
+      </button>
+      <div class="sound-wave" id="sound-wave">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <!-- Header Hero con dedicatoria a distancia -->
+    <header class="hero-section">
+      <div class="tag-badge">💌 Edición Especial: Amor a Distancia</div>
+      <h1 class="main-title">
+        ¡Hola, mi <span class="accent-text">amorcito consentida</span>!
+      </h1>
+      <p class="hero-subtitle">
+        Sé que hoy estás trabajando con tu mami y que la distancia a veces pesa, pero mira todo lo que hemos construido juntos. En la vida real y en cada mundo virtual, ¡siempre estás tú en mi corazón! 💕
+      </p>
+
+      <!-- Badge de conexión a distancia -->
+      <div class="ldr-connection-bar glass-panel">
+        <div class="connection-node">
+          <div class="node-avatar-box">
+            <img src="fotos/yoo.jpeg" alt="Yo pensando en ti" class="node-avatar-img">
+          </div>
+          <span class="node-label">Yo pensando en ti</span>
+        </div>
+        <div class="connection-line">
+          <div class="signal-dot"></div>
+          <span class="line-heart">💖</span>
+        </div>
+        <div class="connection-node">
+          <div class="node-avatar-box">
+            <img src="fotos/tuu.jpeg" alt="Tú trabajando juiciosa" class="node-avatar-img">
+          </div>
+          <span class="node-label">Tú trabajando juiciosa</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tarjeta Principal del Botón Escapista ("No") -->
+    <section class="game-card glass-panel" id="question-card">
+      <div class="card-ribbon">Pregunta innegociable 🚨</div>
+      
+      <div class="card-avatar">
+        <span class="avatar-emoji" id="avatar-emoji">🥺</span>
+      </div>
+
+      <h2 class="card-question" id="game-question">
+        ¿Te puedo llamar cuando tengas tiempito, mi amor? jsjsj 💕
+      </h2>
+      <p class="card-hint" id="game-hint">
+        (Elige con sabiduría... el botón "No" es alérgico a que me digas que no 🥺)
+      </p>
+
+      <div class="interactive-arena" id="arena">
+        <button id="btn-yes" class="btn btn-yes">
+          <span class="heart-icon">💖</span>
+          ¡SÍ, OBVIO QUE SÍ!
+        </button>
+
+        <button id="btn-no" class="btn btn-no">
+          No 🙈
+        </button>
+      </div>
+
+      <div class="stats-counter" id="evade-counter-wrapper" style="display: none;">
+        <span>Intentos de decir que no: <strong id="evade-count">0</strong></span>
+        <span class="sub-comment" id="evade-comment">¡No puedes escapar de mi amor!</span>
+      </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN DESTACADA: NUESTRO ÁLBUM DE FOTOS Y RECUERDOS -->
+    <section class="album-section glass-panel">
+      <div class="section-badge-header">
+        <span class="badge-icon">📸</span>
+        <div>
+          <h2>Nuestro Álbum: En la Vida Real y en Nuestros Mundos</h2>
+          <p>Toca cualquier foto para verla en pantalla completa con todo su amor</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta Especial: Vida Real vs Mundos Virtuales -->
+      <div class="special-parallel-card">
+        <div class="parallel-text">
+          <span class="mini-tag">✨ La coincidencia más hermosa</span>
+          <h3>Acostaditos Juntos: En la Realidad y en los Videojuegos</h3>
+          <p>
+            Míranos en la foto real y luego en Minecraft y en Sky... ¡Siempre buscamos acostarnos juntitos, abrazarnos y descansar pegaditos en cualquier universo! 🥺💖
+          </p>
+        </div>
+      </div>
+
+      <!-- Grid de Fotos con descripciones detalladas -->
+      <div class="photos-grid">
+
+        <!-- FOTO 1: ACOSTADOS EN LA VIDA REAL -->
+        <article class="photo-card" onclick="openLightbox('fotos/acostadosia.jpeg', 'Nosotros en la Vida Real 💖', 'Acostaditos juntos en la cama, sintiendo tu calorcito, tus ojitos hermosos y tu respiración cerquita. Este es mi lugar seguro en el mundo entero y por este abrazo es que vale la pena cada kilómetro de distancia.')">
+          <div class="photo-pin">📌</div>
+          <div class="photo-media-wrapper">
+            <img src="fotos/acostadosia.jpeg" alt="Nosotros acostados juntos" class="photo-img">
+            <span class="photo-overlay-tag">💖 En la vida real</span>
+          </div>
+          <div class="photo-info">
+            <h3 class="photo-title">Nosotros en la Vida Real</h3>
+            <p class="photo-desc">
+              Acostaditos juntos, mirándonos a los ojos. No hay nada en este planeta que se compare a tenerte en mis brazos así. Eres la mujer de mi vida.
+            </p>
+            <div class="photo-footer-note">👩‍❤️‍👨 Nuestro abrazo favorito</div>
+          </div>
+        </article>
+
+        <!-- FOTO 2: MINECRAFT -->
+        <article class="photo-card" onclick="openLightbox('fotos/minecraft.jpeg', 'Acostados en las Flores de Cerezo (Minecraft) 🌸⛏️', 'xDario3 y su princesa acostaditos sobre el césped repleto de flores rosas mientras cae la suave lluvia. Recreando nuestros abrazos bloque por bloque en nuestro mundo.')">
+          <div class="photo-pin">🌸</div>
+          <div class="photo-media-wrapper">
+            <img src="fotos/minecraft.jpeg" alt="Minecraft acostados en cerezos" class="photo-img">
+            <span class="photo-overlay-tag mc-badge">⛏️ Minecraft</span>
+          </div>
+          <div class="photo-info">
+            <h3 class="photo-title">Flores de Cerezo en Maicra</h3>
+            <p class="photo-desc">
+              Tú y yo acostaditos en el pasto lleno de flores rosas, con <strong>xDario3</strong> y tu skin hermosa. ¡Hasta en Minecraft descansamos juntitos!
+            </p>
+            <div class="photo-footer-note">🌸 Nuestro campo de flores</div>
+          </div>
+        </article>
+
+        <!-- FOTO 3: SKY FLORES MORADAS -->
+        <article class="photo-card" onclick="openLightbox('fotos/sky.jpeg', 'Descansando en las Flores Moradas (Sky) 💜🌾', 'Nuestros Niños de la Luz acostaditos en el campo de flores violetas y luego tú arrodillada con cariño a mi lado. En Sky encontramos la paz más pura.')">
+          <div class="photo-pin">✨</div>
+          <div class="photo-media-wrapper">
+            <img src="fotos/sky.jpeg" alt="Sky acostados en flores moradas" class="photo-img">
+            <span class="photo-overlay-tag sky-badge">🌟 Sky: CotL</span>
+          </div>
+          <div class="photo-info">
+            <h3 class="photo-title">Pradera de Flores en Sky</h3>
+            <p class="photo-desc">
+              Acostaditos mirando el cielo en esa alfombra de flores moradas. Y abajo, mirándonos con amor recargando nuestra luz interior.
+            </p>
+            <div class="photo-footer-note">💜 Almas gemelas de luz</div>
+          </div>
+        </article>
+
+        <!-- FOTO 4: SKY ABRAZOS Y MIMOS -->
+        <article class="photo-card" onclick="openLightbox('fotos/sky2.jpeg', 'Abrazos, Mimos y Corazoncitos (Sky) 🫂💖', 'Nuestros 4 momentos favoritos en la cueva luminosa: un abrazo apretadito, caminando juntos entre partículas de luz, lanzándonos corazones en la cara y bailando felices.')">
+          <div class="photo-pin">🎀</div>
+          <div class="photo-media-wrapper">
+            <img src="fotos/sky2.jpeg" alt="Sky collage de abrazos" class="photo-img">
+            <span class="photo-overlay-tag sky-badge">🌟 Sky: CotL</span>
+          </div>
+          <div class="photo-info">
+            <h3 class="photo-title">Abrazos, Besitos y Bailes</h3>
+            <p class="photo-desc">
+              Un abrazo en la cueva secreta, caminando juntitos, lanzándonos corazones en la carita y bailando con las alitas abiertas. ¡Pura ternura!
+            </p>
+            <div class="photo-footer-note">🫂 Cuatro fotos, un solo amor</div>
+          </div>
+        </article>
+
+        <!-- FOTO 5: SKY ATARDECER EN EL MAR -->
+        <article class="photo-card full-width-card" onclick="openLightbox('fotos/sky3.jpeg', 'Atardecer Dorado en el Mar (Sky) 🌅👑', 'Tú con tu corona de rosas en el cabello blanco y yo abrazándote mientras el sol se oculta en el horizonte marino. La cita virtual más romántica de nuestras vidas.')">
+          <div class="photo-pin">🌅</div>
+          <div class="photo-media-wrapper tall-media">
+            <img src="fotos/sky3.jpeg" alt="Sky atardecer en el mar con corona de flores" class="photo-img">
+            <span class="photo-overlay-tag sunset-badge">🌅 Atardecer Mágico</span>
+          </div>
+          <div class="photo-info">
+            <h3 class="photo-title">Nuestra Cita Frente al Atardecer Dorado</h3>
+            <p class="photo-desc">
+              Mírate qué hermosa con tu corona de rositas rosadas, abrazándome mientras el sol se funde en el mar y las velas se encienden en la arena. No existe paisaje en ningún videojuego más lindo que estar a tu lado.
+            </p>
+            <div class="photo-footer-note">👑 La reina de mi corazón y de todos los mundos</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN INTERACTIVA: PESTAÑAS DE NUESTROS MUNDOS VIRTUALES -->
+    <section class="virtual-worlds-section glass-panel">
+      <div class="section-badge-header">
+        <span class="badge-icon">🪐</span>
+        <div>
+          <h2>Explora Nuestros Mundos</h2>
+          <p>Elige tu juego favorito y activa los sonidos de nuestros recuerdos</p>
+        </div>
+      </div>
+
+      <!-- Pestañas de Juegos -->
+      <div class="worlds-nav">
+        <button class="world-tab active" data-world="minecraft">
+          <span>⛏️</span> Minecraft
+        </button>
+        <button class="world-tab" data-world="sky">
+          <span>🌟</span> Sky: CotL
+        </button>
+        <button class="world-tab" data-world="roblox">
+          <span>🎮</span> Roblox
+        </button>
+        <button class="world-tab" data-world="distancia">
+          <span>🌍</span> En Llamada
+        </button>
+      </div>
+
+      <!-- Contenedores de cada Mundo -->
+      <div class="world-showcase">
+        <!-- MINECRAFT -->
+        <div class="world-content active" id="world-minecraft">
+          <div class="world-card-frame">
+            <img src="fotos/minecraft.jpeg" alt="Cita en Minecraft" class="world-image" id="img-minecraft">
+            <div class="world-tag minecraft-tag">🌸 Nuestra foto en Minecraft</div>
+          </div>
+          <div class="world-details">
+            <h3>Nuestra Casita Cúbica y Atardeceres</h3>
+            <p>
+              Buscar flores, construir nuestra casita de madera, refugiarnos juntos cuando llueve y mirarnos con nuestros skins favoritos mientras comemos pastel en el juego. ¡Mi lugar favorito en cualquier servidor siempre es acostadito a tu ladito!
+            </p>
+            <div class="world-quote">"xDario3 no necesita armadura de Netherite si tiene tu amor"</div>
+            <button class="btn btn-theme btn-mc" onclick="playGameSound('minecraft')">
+              🔔 Sonar recuerdo de Minecraft
+            </button>
+          </div>
+        </div>
+
+        <!-- SKY: CHILDREN OF THE LIGHT -->
+        <div class="world-content" id="world-sky">
+          <div class="world-card-frame">
+            <img src="fotos/sky3.jpeg" alt="Cita en Sky frente al atardecer" class="world-image" id="img-sky">
+            <div class="world-tag sky-tag">🌅 Nuestra foto en Sky</div>
+          </div>
+          <div class="world-details">
+            <h3>Tomaditos de la Mano Entre las Nubes</h3>
+            <p>
+              Agarrar tu manita para que no te pierdas, volar juntos por el reino dorado, recargarnos las alitas y sentarnos en los banquitos a hablar bajo las constelaciones. Cuando jugamos Sky, de verdad siento que vuelo contigo.
+            </p>
+            <div class="world-quote">"Nuestras alitas brillan más cuando estamos juntos"</div>
+            <button class="btn btn-theme btn-sky" onclick="playGameSound('sky')">
+              ✨ Tintineo de luz de Sky
+            </button>
+          </div>
+        </div>
+
+        <!-- ROBLOX -->
+        <div class="world-content" id="world-roblox">
+          <div class="world-card-frame">
+            <img src="citas_virtuales/roblox/roblox_card.svg" alt="Cita en Roblox" class="world-image" id="img-roblox">
+            <div class="world-tag roblox-tag">🎮 Caídas y risas en Roblox</div>
+          </div>
+          <div class="world-details">
+            <h3>Risas, Obbies Imposibles y Paseos</h3>
+            <p>
+              Cantar, caernos mil veces en el mismo nivel de parkour, esperar que el otro reviva, vestir a nuestros avatares haciendo match y no parar de reírnos por llamada. ¡Los momentos más graciosos de mi semana son contigo aquí!
+            </p>
+            <div class="world-quote">"No importa cuántas veces muera en el obby, siempre revivo por ti"</div>
+            <button class="btn btn-theme btn-roblox" onclick="playGameSound('roblox')">
+              🔊 Efecto sorpresa de Roblox
+            </button>
+          </div>
+        </div>
+
+        <!-- DISTANCIA / LLAMADAS -->
+        <div class="world-content" id="world-distancia">
+          <div class="world-card-frame">
+            <img src="fotos/acostadosia.jpeg" alt="Nosotros juntos" class="world-image" id="img-distancia" style="object-position: center;">
+            <div class="world-tag ldr-tag">🌍 Nosotros Juntitos</div>
+          </div>
+          <div class="world-details">
+            <h3>Horas y Horas en Pantalla y el Deseo de Verte</h3>
+            <p>
+              Quedarnos dormiditos en llamada, ver películas compartiendo pantalla, enviarnos TikToks tontos y esperar el día en que ya no tengamos que despedirnos por un teléfono sino con un beso de verdad. ¡Te elijo a ti mil veces sobre cualquier distancia!
+            </p>
+            <div class="world-quote">"Estamos lejos de ojos, pero pegaditos de corazón"</div>
+            <button class="btn btn-theme btn-ldr" onclick="spawnFloatingHugs()">
+              💌 Mandar pulso de amor en vivo
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RULETA DE CITA VIRTUAL PARA HOY -->
+    <section class="date-roulette-section glass-panel">
+      <div class="roulette-header">
+        <span class="roulette-icon">🎡</span>
+        <h2>¿Qué cita virtual tendremos hoy al terminar de trabajar?</h2>
+        <p>Gira la ruleta y dejemos que el destino elija nuestro plan para más tarde:</p>
+      </div>
+
+      <div class="roulette-display" id="roulette-display">
+        <div class="roulette-badge">Plan Seleccionado</div>
+        <div class="roulette-result-icon" id="roulette-icon">🎲</div>
+        <h3 class="roulette-title" id="roulette-title">¡Toca el botón para girar!</h3>
+        <p class="roulette-desc" id="roulette-desc">Tengo muchas ideas lindas preparadas para ti cuando descanses.</p>
+      </div>
+
+      <button id="btn-spin-roulette" class="btn btn-roulette">
+        🎯 ¡Girar Ruleta de Citas!
+      </button>
+    </section>
+
+    <!-- SECCIÓN: "ABRE ESTA CARTA CUANDO..." -->
+    <section class="letters-section">
+      <h2 class="section-title">
+        <span>📬</span> Abre esta carta cuando...
+      </h2>
+      <p class="section-desc">Guárdalas para cuando más lo necesites durante el día:</p>
+
+      <div class="letters-grid">
+        <div class="letter-card glass-panel" data-letter="tired">
+          <div class="envelope-stamp">☕</div>
+          <h3>...estés cansada del trabajo</h3>
+          <span class="tap-open">Toca para leer 💌</span>
+          <div class="letter-content">
+            <p>Mi amorcita preciosa, sé que trabajar cansa y a veces los días son pesados. Siéntete muy orgullosa de ti misma porque eres una mujer increíble, trabajadora y noble. Si pudiera, te llevaría ahora mismo tu comida favorita y te daría un masaje en la espalda. Respira profundo, ya falta poco para descansar. ¡Te amo con locura! 💆‍♀️💖</p>
+          </div>
+        </div>
+
+        <div class="letter-card glass-panel" data-letter="miss">
+          <div class="envelope-stamp">🥺</div>
+          <h3>...me extrañes mucho</h3>
+          <span class="tap-open">Toca para leer 💌</span>
+          <div class="letter-content">
+            <p>Yo también te estoy extrañando a cada segundo. Cada vez que sientas esa cosquillita en el pecho, recuerda que bajo este mismo cielo hay un chico loco de amor por ti contando las horas para verte en pantalla o abrazarte en persona. La distancia es solo temporal, lo nuestro es para siempre. 🌍✨</p>
+          </div>
+        </div>
+
+        <div class="letter-card glass-panel" data-letter="proud">
+          <div class="envelope-stamp">👑</div>
+          <h3>...dudes de lo genial que eres</h3>
+          <span class="tap-open">Toca para leer 💌</span>
+          <div class="letter-content">
+            <p>¡Ni se te ocurra dudar de ti! Eres brillante, hermosa, graciosa y tienes un corazón de oro. Admiro muchísimo cómo ayudas a tu mami y las ganas que le pones a todo. Para mí eres la chica más perfecta de este universo entero. ¡Nunca lo olvides reina! 🌟</p>
+          </div>
+        </div>
+
+        <div class="letter-card glass-panel" data-letter="sleep">
+          <div class="envelope-stamp">🌙</div>
+          <h3>...te vayas a dormir hoy</h3>
+          <span class="tap-open">Toca para leer 💌</span>
+          <div class="letter-content">
+            <p>Cierra tus ojitos sabiendo que hiciste un trabajo maravilloso hoy. Duerme calientita, sueña con nosotros en nuestro mundo de Minecraft o volando en Sky, y despiértate sabiendo que eres lo más bonito que me ha pasado en la vida. Te amo infinitamente. 🧸💤</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medidor de Amor Interactivo -->
+    <section class="love-meter-section glass-panel">
+      <div class="meter-header">
+        <h2>🌡️ Medidor oficial de cuánto te amo</h2>
+        <p>Calculadora cuántica de amor a prueba de kilómetros:</p>
+      </div>
+      
+      <div class="slider-box">
+        <input type="range" id="love-slider" min="0" max="100" value="50" step="1">
+        <div class="meter-readout">
+          <span class="readout-label">Nivel de amor:</span>
+          <span class="readout-value" id="love-value">1,000,000%</span>
+        </div>
+      </div>
+
+      <div class="meter-feedback" id="meter-feedback">
+        "¡El sistema colapsó! Es matemáticamente imposible medir tanto amor por ti."
+      </div>
+
+      <button id="btn-burst-hearts" class="btn btn-secondary">
+        💖 ¡Disparar lluvia de corazones!
+      </button>
+    </section>
+
+    <!-- Modal de Celebración tras decir que SÍ -->
+    <div class="modal-backdrop" id="celebration-modal">
+      <div class="modal-card glass-panel">
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+        <div class="modal-stars">✨ 📞 💖 ✨</div>
+        <h2 class="modal-title">¡SABÍA QUE DIRÍAS QUE SÍ! 🥰</h2>
+        <div class="modal-illustration">📲👩‍❤️‍👨</div>
+        <p class="modal-text">
+          ¡Permiso oficial concedido! Cuando descanses de trabajar con tu mami y tengas tu tiempito libre, te llamo para escuchar tu vocecita hermosa.
+        </p>
+        <div class="love-letter-paper">
+          <p class="handwriting">
+            "Mi reina hermosa, gracias por alegrarme la vida todos los días. Trabaja con calma y sin estrés, que aquí estaré esperando con ansias para hablar contigo y contarnos todo. ¡Te amo con todo mi corazón!"
+          </p>
+          <div class="letter-footer">Tu persona favorita 💕</div>
+        </div>
+        <button class="btn btn-yes modal-action-btn" id="claim-reward-btn">
+          ✨ ¡Esperando tu mensajito para llamarte! 📲
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL LIGHTBOX PARA VER FOTOS EN GRANDE -->
+    <div class="lightbox-backdrop" id="lightbox-modal">
+      <div class="lightbox-card glass-panel">
+        <button class="lightbox-close" id="lightbox-close-btn">&times;</button>
+        <div class="lightbox-img-box">
+          <img src="" alt="Recuerdo" id="lightbox-img">
+        </div>
+        <div class="lightbox-caption">
+          <h3 id="lightbox-title">Título de la Foto</h3>
+          <p id="lightbox-desc">Descripción tierna de la foto</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bonito -->
+    <footer class="footer-section">
+      <p>Hecho con amor real para <strong>mi amorcito</strong> • Relación a Distancia pero con Amor Infinito 💖</p>
+      <p class="sub-footer">¡Te amo en la vida real, en Minecraft, en Sky, en Roblox y en todos los universos posibles! ✨</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
